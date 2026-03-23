@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -28,7 +27,7 @@ function Home() {
 
     return () => clearInterval(interval);
 
-  }, []);
+  }, [textArray.length]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 text-white">

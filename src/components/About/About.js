@@ -1,43 +1,53 @@
 
-// import React from "react";
+// import React, { useState, useEffect } from "react";
 // import { motion } from "framer-motion";
 
-<<<<<<< HEAD
-export default function ImgMediaCard() {
-  // Function to navigate to LinkedIn
-  const navigateToLinkedIn = () => {
-    window.location.href = "https://www.linkedin.com/in/harsh-khare-1a30412a5?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app";
-  };
+// // 🔥 Auto Slider Component
+// function AutoSlider({ images }) {
+//   const [index, setIndex] = useState(0);
 
-  // Function to navigate to Travelo App
-  const navigateToTravelo = () => {
-    window.location.href = "https://travelo-app-pi.vercel.app"; // Replace with your actual URL
-  };
-  // Function to navigate to Background Color Change App
-  const navigateToBackgroundColorChange = () => {
-    window.location.href = "https://harsh81r.github.io/BackgroundColorChange_EverySecond/"; // Replace with your actual URL
-  };
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//       setIndex((prev) => (prev + 1) % images.length);
+//     }, 2500);
 
-  // Function to navigate to Counter App
-  const navigateToCounter = () => {
-    window.location.href = "https://harsh81r.github.io/my-to-do-list-FINAL/"; // Replace with your actual URL
-=======
+//     return () => clearInterval(interval);
+//   }, [images.length]);
+
+//   return (
+//     <div className="h-52 w-full overflow-hidden relative">
+//       <img
+//         src={images[index]}
+//         alt="project"
+//         className="w-full h-full object-cover transition duration-700"
+//       />
+//     </div>
+//   );
+// }
+
+// // 📦 Projects Data
 // const projects = [
->>>>>>> 0aab296 (Updated components, removed unused files, added assets)
-
-
-
-//     {
+//   {
 //     title: "HDLx APP/APK",
-//     desc: ".",
-//     img: "https://definite-fuchsia-0fxs9pw5b4.edgeone.app/Screenshot%202026-03-23%20110451.png",
+//     desc: "HDLx is a full-stack app for managing and exploring digital products.",
+//     imgs: [
+//       "/assets/hdlx1.jpg",
+//       "/assets/hdlx2.jpg",
+//       "/assets/hdlx3.jpg",
+//       "/assets/hdlx4.jpg"
+//     ],
 //     url: "https://github.com/harsh81r/HDLX_Apk-file",
 //     github: "https://github.com/harsh81r/HDLX_Apk-file"
 //   },
 //   {
 //     title: "Travelo App",
 //     desc: "Discover your next adventure with AI travel planning.",
-//     img: "https://definite-fuchsia-0fxs9pw5b4.edgeone.app/Screenshot%202026-03-23%20110451.png",
+//     imgs: [
+//       "/assets/travelo1.jpg",
+//       "/assets/travelo2.jpg",
+//       "/assets/travelo3.jpg"
+      
+//     ],
 //     url: "https://travelo-app-pi.vercel.app",
 //     github: "https://github.com/harsh81r/travelo-app"
 //   },
@@ -58,7 +68,7 @@ export default function ImgMediaCard() {
 //   {
 //     title: "Todo List",
 //     desc: "Interactive todo list application using JavaScript.",
-//     img: "./todo.png",
+//     img: "/assets/todo.png",
 //     url: "https://harsh81r.github.io/my-to-do-list-FINAL/",
 //     github: "https://github.com/harsh81r/my-to-do-list-FINAL"
 //   }
@@ -72,8 +82,45 @@ export default function ImgMediaCard() {
 
 //   return (
 
+//     <div className="bg-indigo-950">
+
+
+//       <div className="max-w-screen-md mx-auto px-4 py-6 text-center">
+//         <h1 className="text-slate-100 text-xl font-bold mb-4">My-Project</h1>
+//         <p className="text-gray-200 mb-2">Welcome to our project </p>
+//         <Button 
+//           className="inline-block bg-blue-500 text-white rounded-lg px-5 py-2 hover:bg-white-100 transition duration-300" 
+//           onClick={navigateToLinkedIn}
+//         >
+//           Visit LinkedIn Profile
+//         </Button>
+
+//         <div className="container mx-auto px-4">
+//           <div className="flex flex-wrap justify-center">
+//             {/* Card 1 */}
+//             <div className="m-4">
+//               <Card sx={{ maxWidth: 350 }}>
+//                 <CardMedia
+//                   component="img"
+//                   alt="Travelo App"
+//                   height="140"
+//                   image="https://media.licdn.com/dms/image/v2/D5622AQHGPfSxzppHtA/feedshare-shrink_2048_1536/B56ZPHJvXVHoAo-/0/1734213041305?e=1760572800&v=beta&t=J_lvzgAF5_p9fKBpDxaoLGnQW6f_LV7wOpi-qFj1Cak"
+//                 />
+//                 <CardContent>
+//                   <Typography gutterBottom variant="h5" component="div">
+//                     Travelo -App
+//                   </Typography>
+//                   <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+//                     Discover your next adventure with travel; it helps to make personalized plans with a fingertip.
+//                   </Typography>
+//                 </CardContent>
+//                 <CardActions>
+//                   <Button size="small" onClick={navigateToTravelo}>view-app</Button>
+//                 </CardActions>
+//               </Card>
 //     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900 to-black py-16 px-6">
 
+//       {/* Heading */}
 //       <motion.h1
 //         initial={{ opacity: 0, y: -40 }}
 //         animate={{ opacity: 1, y: 0 }}
@@ -83,6 +130,7 @@ export default function ImgMediaCard() {
 //         🚀 My Projects
 //       </motion.h1>
 
+//       {/* Cards */}
 //       <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-10">
 
 //         {projects.map((project, index) => (
@@ -96,16 +144,31 @@ export default function ImgMediaCard() {
 //             className="relative group"
 //           >
 
+//             {/* Glow */}
 //             <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
 
-//             <div className="relative bg-slate-900 backdrop-blur-xl rounded-xl overflow-hidden border border-slate-700 shadow-xl">
+//             <div className="relative bg-slate-900 rounded-xl overflow-hidden border border-slate-700 shadow-xl">
 
-//               <img
-//                 src={project.img}
-//                 alt={project.title}
-//                 className="h-52 w-full object-cover group-hover:scale-110 transition duration-500"
-//               />
+//               {/* 🔥 IMAGE / SLIDER */}
+//               {project.imgs ? (
+//                 <AutoSlider images={project.imgs} />
+//               ) : (
+//                 // <img
+//                 //   src={project.img}
+//                 //   alt={project.title}
+//                 //   className="h-80 w-full object-cover group-hover:scale-110 transition duration-500"
+//                 // />
 
+//                 <div className="w-full aspect-[4/3] overflow-hidden">
+//   <img
+//     src={project.img}
+//     alt={project.title}
+//     className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+//   />
+// </div>
+//               )}
+
+//               {/* Content */}
 //               <div className="p-6 space-y-4">
 
 //                 <h2 className="text-xl font-bold text-white">
@@ -144,6 +207,7 @@ export default function ImgMediaCard() {
 
 //       </div>
 
+//       {/* LinkedIn */}
 //       <div className="text-center mt-20">
 
 //         <motion.button
@@ -157,18 +221,20 @@ export default function ImgMediaCard() {
 //           }
 //           className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl font-bold shadow-lg"
 //         >
+
 //           Visit My LinkedIn
 //         </motion.button>
 
-//       </div>
 
+//       </div>
 //     </div>
+    
 //   );
-// }
+
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-// 🔥 Auto Slider Component
+// 🔥 Auto Slider Component (FIXED 4:3)
 function AutoSlider({ images }) {
   const [index, setIndex] = useState(0);
 
@@ -181,7 +247,7 @@ function AutoSlider({ images }) {
   }, [images.length]);
 
   return (
-    <div className="h-52 w-full overflow-hidden relative">
+    <div className="w-full aspect-[4/3] overflow-hidden rounded-t-xl">
       <img
         src={images[index]}
         alt="project"
@@ -195,7 +261,7 @@ function AutoSlider({ images }) {
 const projects = [
   {
     title: "HDLx APP/APK",
-    desc: "HDLx is a full-stack app for managing and exploring digital products.",
+    desc: "Metal pickup app with booking and pricing system.",
     imgs: [
       "/assets/hdlx1.jpg",
       "/assets/hdlx2.jpg",
@@ -211,7 +277,8 @@ const projects = [
     imgs: [
       "/assets/travelo1.jpg",
       "/assets/travelo2.jpg",
-      "/assets/travelo3.jpg"
+      "/assets/travelo3.jpg",
+      "/assets/travelo4.jpg"
       
     ],
     url: "https://travelo-app-pi.vercel.app",
@@ -247,43 +314,7 @@ export default function Projects() {
   };
 
   return (
-<<<<<<< HEAD
-    <div className="bg-indigo-950">
-      <div className="max-w-screen-md mx-auto px-4 py-6 text-center">
-        <h1 className="text-slate-100 text-xl font-bold mb-4">My-Project</h1>
-        <p className="text-gray-200 mb-2">Welcome to our project </p>
-        <Button 
-          className="inline-block bg-blue-500 text-white rounded-lg px-5 py-2 hover:bg-white-100 transition duration-300" 
-          onClick={navigateToLinkedIn}
-        >
-          Visit LinkedIn Profile
-        </Button>
-
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center">
-            {/* Card 1 */}
-            <div className="m-4">
-              <Card sx={{ maxWidth: 350 }}>
-                <CardMedia
-                  component="img"
-                  alt="Travelo App"
-                  height="140"
-                  image="https://media.licdn.com/dms/image/v2/D5622AQHGPfSxzppHtA/feedshare-shrink_2048_1536/B56ZPHJvXVHoAo-/0/1734213041305?e=1760572800&v=beta&t=J_lvzgAF5_p9fKBpDxaoLGnQW6f_LV7wOpi-qFj1Cak"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    Travelo -App
-                  </Typography>
-                  <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                    Discover your next adventure with travel; it helps to make personalized plans with a fingertip.
-                  </Typography>
-                </CardContent>
-                <CardActions>
-                  <Button size="small" onClick={navigateToTravelo}>view-app</Button>
-                </CardActions>
-              </Card>
-=======
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900 to-black py-16 px-6">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900 to-black py-16 px-4 sm:px-6">
 
       {/* Heading */}
       <motion.h1
@@ -296,7 +327,7 @@ export default function Projects() {
       </motion.h1>
 
       {/* Cards */}
-      <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-10">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
 
         {projects.map((project, index) => (
 
@@ -318,19 +349,13 @@ export default function Projects() {
               {project.imgs ? (
                 <AutoSlider images={project.imgs} />
               ) : (
-                // <img
-                //   src={project.img}
-                //   alt={project.title}
-                //   className="h-80 w-full object-cover group-hover:scale-110 transition duration-500"
-                // />
-
-                <div className="w-full aspect-[4/3] overflow-hidden">
-  <img
-    src={project.img}
-    alt={project.title}
-    className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
-  />
-</div>
+                <div className="w-full aspect-[4/3] overflow-hidden rounded-t-xl">
+                  <img
+                    src={project.img}
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                  />
+                </div>
               )}
 
               {/* Content */}
@@ -344,7 +369,7 @@ export default function Projects() {
                   {project.desc}
                 </p>
 
-                <div className="flex gap-3">
+                <div className="flex gap-3 flex-wrap">
 
                   <button
                     onClick={() => openLink(project.url)}
@@ -364,7 +389,6 @@ export default function Projects() {
 
               </div>
 
->>>>>>> 0aab296 (Updated components, removed unused files, added assets)
             </div>
 
           </motion.div>
