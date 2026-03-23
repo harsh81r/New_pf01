@@ -1,148 +1,248 @@
 
-import React from 'react'
+// import React, { useRef, useState } from "react";
+// // import React from "react";
+// import emailjs from "@emailjs/browser";
+
+
+// export default function Contact() {
+//   const form = useRef();
+
+//   const [status, setStatus] = useState("");
+
+//   const sendEmail = (e) => {
+//     e.preventDefault();
+
+//     emailjs
+//       .sendForm(
+//         "service_rjvhry5",   // replace     service_rjvhry5
+//         "template_la4jg8c",  // replace     template_la4jg8c
+//         form.current,
+//         "sFGpawD6u6iTOQ2vV"    // replace    sFGpawD6u6iTOQ2vV
+//       )
+//       .then(
+//         () => {
+//           setStatus("Message sent successfully ✅");
+//           form.current.reset();
+//         },
+//         (error) => {
+//           setStatus("Failed to send ❌");
+//           console.log(error);
+//         }
+//       );
+//   };
+
+//   return (
+//     <div className="relative flex items-top justify-center min-h-[700px] bg-indigo-950 sm:items-center sm:pt-0">
+//       <div className="max-w-6xl mx-auto sm:px-6 lg:px-8">
+//         <div className="mt-8 overflow-hidden">
+//           <div className="grid grid-cols-1 md:grid-cols-2">
+            
+//             {/* LEFT SIDE */}
+//             <div className="p-6 mr-2 bg-gray-100 sm:rounded-lg">
+//               <h1 className="text-3xl sm:text-4xl text-gray-800 font-extrabold">
+//                 Get in touch:
+//               </h1>
+//               <p className="text-lg text-gray-600 mt-2">
+//                 Fill in the form to start a conversation
+//               </p>
+
+//               <div className="mt-6 text-gray-600">
+//                 📍 Pune, India  
+//                 <br />
+//                 📞 +91 6261489167
+//                 <br />
+//                 ✉️ harsh7103763@gmail.com
+//               </div>
+//             </div>
+
+//             {/* FORM */}
+//             <form ref={form} onSubmit={sendEmail} className="p-6 flex flex-col justify-center">
+              
+//               <input
+//                 type="text"
+//                 name="name"
+//                 placeholder="Full Name"
+//                 required
+//                 className="mt-2 py-3 px-3 rounded-lg border border-gray-400"
+//               />
+
+//               <input
+//                 type="email"
+//                 name="email"
+//                 placeholder="Email"
+//                 required
+//                 className="mt-2 py-3 px-3 rounded-lg border border-gray-400"
+//               />
+
+//               <input
+//                 type="tel"
+//                 name="tel"
+//                 placeholder="Phone Number"
+//                 className="mt-2 py-3 px-3 rounded-lg border border-gray-400"
+//               />
+
+//               {/* MESSAGE BOX (NEW) */}
+//               <textarea
+//                 name="message"
+//                 placeholder="Your Message..."
+//                 rows="4"
+//                 required
+//                 className="mt-2 py-3 px-3 rounded-lg border border-gray-400"
+//               ></textarea>
+
+//               <button
+//                 type="submit"
+//                 className="bg-orange-700 text-white font-bold py-3 px-6 rounded-lg mt-3 hover:bg-orange-600"
+//               >
+//                 Send Message
+//               </button>
+
+//               {/* STATUS MESSAGE */}
+//               {status && (
+//                 <p className="mt-3 text-white font-semibold">{status}</p>
+//               )}
+//             </form>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+
+
+import React, { useRef, useState, useEffect, } from "react";
+import emailjs from "@emailjs/browser";
+import { toast } from "react-toastify";
 
 export default function Contact() {
-    return (
-        
-            
 
-        <div className="relative flex items-top justify-center min-h-[700px] bg-indigo-950 sm:items-center sm:pt-0 ">
 
-            <div className="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                <div className="mt-8 overflow-hidden">
-                    <div className="grid grid-cols-1 md:grid-cols-2">
-                        <div className="p-6 mr-2 bg-gray-100 sm:rounded-lg">
-                            <h1 className="text-3xl sm:text-4xl text-gray-800 font-extrabold tracking-tight">
-                                Get in touch: 
-                            </h1>
-                            <p className="text-normal text-lg sm:text-xl font-medium text-gray-600 mt-2">
-                                Fill in the form to start a conversation
-                            </p>
+//   console.log("service id:",process.env.REACT_APP_SERVICE_ID);
+//  console.log("TEMPLATE_ID",REACT_APP_TEMPLATE_ID) 
+//  console.log("PUBLIC_KEY",REACT_APP_PUBLIC_KEY) 
 
-                            <div className="flex items-center mt-8 text-gray-600">
-                                <svg
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="1.5"
-                                    viewBox="0 0 24 24"
-                                    className="w-8 h-8 text-gray-500"
-                                    >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="1.5"
-                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                                        />
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="1.5"
-                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                                        />
-                                </svg>
-                                <div className="ml-4 text-md tracking-wide font-semibold w-40">
-                                    Acme Inc, Street, State, Postal Code
-                                </div>
-                            </div>
+  const form = useRef();
 
-                            <div className="flex items-center mt-4 text-gray-600">
-                                <svg
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="1.5"
-                                    viewBox="0 0 24 24"
-                                    className="w-8 h-8 text-gray-500"
-                                    >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="1.5"
-                                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                                        />
-                                </svg>
-                                <div className="ml-4 text-md tracking-wide font-semibold w-40">
-                                    +44 1234567890
-                                </div>
-                            </div>
+  const [status, setStatus] = useState("");
+  const [loading, setLoading] = useState(false);
 
-                            <div className="flex items-center mt-2 text-gray-600">
-                                <svg
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="1.5"
-                                    viewBox="0 0 24 24"
-                                    className="w-8 h-8 text-gray-500"
-                                    >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="1.5"
-                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                                        />
-                                </svg>
-                                <div className="ml-4 text-md tracking-wide font-semibold w-40">
-                                    info@acme.org
-                                </div>
-                            </div>
-                        </div>
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setLoading(true);
 
-                        <form className="p-6 flex flex-col justify-center">
-                            <div className="flex flex-col">
-                                <label for="name" className="hidden">
-                                    Full Name
-                                </label>
-                                <input
-                                    type="name"
-                                    name="name"
-                                    id="name"
-                                    placeholder="Full Name"
-                                    className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
-                                    />
-                            </div>
+    emailjs
+      .sendForm(
+        process.env.REACT_APP_SERVICE_ID,
+        process.env.REACT_APP_TEMPLATE_ID,
+        form.current,
+        process.env.REACT_APP_PUBLIC_KEY
+      )
+      .then(
+        () => {
 
-                            <div className="flex flex-col mt-2">
-                                <label for="email" className="hidden">
-                                    Email
-                                </label>
-                                <input
-                                    type="email"
-                                    name="email"
-                                    id="email"
-                                    placeholder="Email"
-                                    className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
-                                    />
-                            </div>
+          setStatus("Message sent successfully ✅");
+          toast.success('Message sent successfully ✅');
+          
+          setLoading(false);
+          form.current.reset();
+        },
+        (error) => {
+          setStatus("Failed to send ❌");
+          setLoading(false);
+          console.log(error);
+        }
+      );
+  };
 
-                            <div className="flex flex-col mt-2">
-                                <label for="tel" className="hidden">
-                                    Number
-                                </label>
-                                <input
-                                    type="tel"
-                                    name="tel"
-                                    id="tel"
-                                    placeholder="Telephone Number"
-                                    className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
-                                    />
-                            </div>
+  // Auto-hide message after 3 sec
+  useEffect(() => {
+    if (status) {
+      const timer = setTimeout(() => {
+        setStatus("");
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [status]);
 
-                            <button
-                                type="submit"
-                                className="md:w-32 bg-orange-700 hover:bg-blue-dark text-white font-bold py-3 px-6 rounded-lg mt-3 hover:bg-orange-600 transition ease-in-out duration-300"
-                                >
-                                Submit
-                            </button>
-                        </form>
-                    </div>
-                </div>
+  return (
+    <div className="relative flex items-top justify-center min-h-[700px] bg-indigo-950 sm:items-center sm:pt-0">
+      <div className="max-w-6xl mx-auto sm:px-6 lg:px-8">
+        <div className="mt-8 overflow-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+            {/* LEFT SIDE */}
+            <div className="p-6 bg-gray-100 rounded-lg">
+              <h1 className="text-3xl sm:text-4xl text-gray-800 font-extrabold">
+                Get in touch:
+              </h1>
+              <p className="text-lg text-gray-600 mt-2">
+                Fill in the form to start a conversation
+              </p>
+
+              <div className="mt-6 text-gray-600 leading-7">
+                📍 MP, India <br />
+                📞 +91 6261489167 <br />
+                ✉️ harsh7103763@gmail.com
+              </div>
             </div>
-        </div>
 
-    );
+            {/* FORM */}
+            <form
+              ref={form}
+              onSubmit={sendEmail}
+              className="p-6 flex flex-col justify-center bg-white rounded-lg shadow-md"
+            >
+              <input
+                type="text"
+                name="name"
+                placeholder="Full Name"
+                required
+                className="mt-2 py-3 px-3 rounded-lg border border-gray-400 focus:outline-none focus:border-orange-500"
+              />
+
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                required
+                className="mt-2 py-3 px-3 rounded-lg border border-gray-400 focus:outline-none focus:border-orange-500"
+              />
+
+              <input
+                type="tel"
+                name="tel"
+                placeholder="Phone Number"
+                className="mt-2 py-3 px-3 rounded-lg border border-gray-400 focus:outline-none focus:border-orange-500"
+              />
+
+              {/* MESSAGE BOX */}
+              <textarea
+                name="message"
+                placeholder="Your Message..."
+                rows="4"
+                required
+                className="mt-2 py-3 px-3 rounded-lg border border-gray-400 focus:outline-none focus:border-orange-500"
+              ></textarea>
+
+              <button
+                type="submit"
+                disabled={loading}
+                className="bg-orange-700 text-white font-bold py-3 px-6 rounded-lg mt-3 hover:bg-orange-600 disabled:opacity-50 transition"
+              >
+                {loading ? "Sending..." : "Send Message"}
+              </button>
+
+              {/* STATUS MESSAGE */}
+              {status && (
+                <p className="mt-3 text-green-500 font-semibold text-center">
+                  {status}
+                </p>
+              )}
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }

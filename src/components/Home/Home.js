@@ -1,111 +1,140 @@
 
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-// import './Home.css'; // Import the CSS file for animations
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function Home() {
-    const [visibleTextIndex, setVisibleTextIndex] = useState(0);
-    const textArray = [
-        "Proficient MERN Stack Developer specializing in designing and implementing robust, scalable web applications.",
-        "Expertise in MongoDB, Express.js, React.js, and Node.js.",
-        "Strong focus on creating seamless user experiences.",
-        "Efficient, full-stack solutions for modern businesses."
-    ];
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setVisibleTextIndex((prevIndex) => {
-                if (prevIndex < textArray.length - 1) {
-                    return prevIndex + 1;
-                } else {
-                    clearInterval(interval);
-                    return prevIndex; // Stop incrementing after the last text
-                }
-            });
-        }, 2000); // Change text every 2 seconds
+  const [visibleTextIndex, setVisibleTextIndex] = useState(0);
 
-        return () => clearInterval(interval); // Cleanup on unmount
-    }, []);
+  const textArray = [
+      "React & React Native Developer with experience in building scalable web and mobile applications.",
+  "Experienced with React, React Native (Expo & CLI), Firebase, and MongoDB.",
+  "Currently focused on Android mobile development.",
+  "Building end-to-end flexible and user-centric applications.",
+  "Focused on modern UI design and efficient backend integration."
+  ];
 
-    return (
-        <div className='bg-gradient-to-r from-blue-500 to-purple-600 animate-gradient min-h-screen flex items-center'>
-            <div className="mx-auto w-full max-w-7xl">
-                <aside className="relative overflow-hidden text-white rounded-lg sm:mx-16 mx-2 sm:py-10">
-                    <div className="relative z-10 max-w-screen-xl px-4 pb-20 pt-5 sm:py-16 mx-auto sm:px-6 lg:px-8">
-                        <div className="max-w-xl sm:mt-1 mt-20 space-y-8 text-center sm:text-right sm:ml-auto">
-                            <img
-                                src="./myph.jpg"
-                                className="h-32 rounded-3xl ml-20  border-blue-500  text-center"
-                                alt="Logo"
-                            />
-                            <h2 className="text-2xl font-bold sm:text-3xl    ">
-                                <span  className=''>👋</span>  Hii I'm Harsh
-                            </h2>
-                            <h3 className='font-bold mt-5 text-lg sm:text-2xl transition-transform duration-500 transform hover:scale-105'>
-                                {textArray.map((text, index) => (
-                                    <span key={index} className={`block transition-opacity duration-500 ${index <= visibleTextIndex ? 'opacity-100' : 'opacity-0'}`}>
-                                        {text}
-                                    </span>
-                                ))}
-                            </h3>
-                            <span className="hidden sm:block text-4xl">MERN Stack Developer</span>
-                            <Link
-                                to="/about" // Link to the About page
-                                className=" animate-pulse bg-black inline-flex text-yellow-400 items-center px-6 py-3 font-bold rounded-lg  hover:opacity-75"
-                            >
-                                visit-project's
-                            </Link>
-                        </div>
-                    </div>
-                </aside>
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setVisibleTextIndex((prev) => {
+        if (prev < textArray.length - 1) {
+          return prev + 1;
+        } else {
+          clearInterval(interval);
+          return prev;
+        }
+      });
+    }, 2000);
 
-                <div className=" border-x-transparent bg-slate-50 grid place-items-center sm:mt-20">
-                    <h2 className="text-3xl font-bold text-center mb-8">Technologies I've Worked With</h2>
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                        <div className="flex flex-col items-center transition-transform transform hover:scale-110">
-                            <img src={'./python.svg'} alt="Python" className="h-16 w-16 animate-spin " />
-                            <span className="mt-2 font-bold">Python</span>
-                        </div>
-                        <div className="flex flex-col items-center transition-transform transform hover:scale-110">
-                            <img src={'./tailwind-css.svg'} alt="Tailwind CSS" className="h-16 w-16 animate-bounce" />
-                            <span className="mt-2 font-bold ">Tailwind CSS</span>
-                        </div>
-                        <div className="flex flex-col items-center transition-transform transform hover:scale-110">
-                            <img src={'./firebase.svg'} alt="Firebase" className="h-16 w-16 animate-bounce" />
-                            <span className="mt-2 font-bold">Firebase</span>
-                        </div>
-                      
-                        <div className="flex flex-col items-center transition-transform transform hover:scale-110">
-                            <img src={'./Javascript.png'} alt="JavaScript" className="h-16 w-16 animate-bounce" />
-                            <span className="mt-2 font-bold">JavaScript</span>
-                        </div>
-                        <div className="flex flex-col items-center transition-transform transform hover:scale-110">
-                            <img src={'./html.svg'} alt="HTML" className="h-16 w-16 animate-bounce" />
-                            <span className="mt-2 font-bold">HTML</span>
-                        </div>
-                        <div className="flex flex-col items-center transition-transform transform hover:scale-110">
-                            <img src={'./react.svg'} alt="React" className="h-16 w-16 animate-bounce" />
-                            <span className="mt-2 font-bold">React</span>
-                        </div>
-                        <div className="flex flex-col items-center transition-transform transform hover:scale-110">
-                            <img src={'./Express-js.png'} alt="Express" className="h-16 w-16 animate-bounce" />
-                            <span className="mt-2 font-bold">Express</span>
-                        </div>
-                        <div className="flex flex-col items-center transition-transform transform hover:scale-110">
-                            <img src={'./mongodb.svg'} alt="MongoDB" className="h-16 w-16 animate-bounce" />
-                            <span className="mt-2 font-bold">MongoDB</span>
-                        </div>
-                        <div className="flex flex-col items-center transition-transform transform hover:scale-110">
-                            <img src={'./nodejs.svg'} alt="Node" className="h-16 w-16 animate-bounce" />
-                            <span className="mt-2 font-bold">Node</span>
-                        </div>
-                    </div>
-                </div>
+    return () => clearInterval(interval);
 
-                <h1 className="text-center text-2xl sm:text-5xl py-10 font-medium"></h1>
-            </div>
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 text-white">
+
+      {/* HERO SECTION */}
+
+      <div className="max-w-7xl mx-auto px-6 py-24 flex flex-col md:flex-row items-center justify-between">
+
+        {/* LEFT TEXT */}
+
+        <div className="max-w-xl space-y-6">
+
+          <h1 className="text-5xl font-bold leading-tight">
+            Hi 👋 <br />
+            I'm <span className="text-blue-400">Harsh Khare</span>
+          </h1>
+
+          <h2 className="text-xl text-gray-300 font-semibold">
+            MERN Stack Developer
+          </h2>
+
+          <div className="text-gray-300 text-lg space-y-2">
+            {textArray.map((text, index) => (
+              <p
+                key={index}
+                className={`transition-opacity duration-500 ${
+                  index <= visibleTextIndex ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                {text}
+              </p>
+            ))}
+          </div>
+
+          {/* BUTTONS */}
+
+          <div className="flex gap-4 pt-4">
+
+        
+
+            <Link
+              to="/about"
+              className="px-6 py-3 border border-white rounded-xl hover:bg-white hover:text-black transition"
+            >
+              View Projects
+            </Link>
+
+
+        
+          </div>
+
         </div>
-    );
+
+        {/* PROFILE IMAGE */}
+
+        <div className="mt-10 md:mt-0">
+
+          <img
+            src="./myph.png"
+            alt="Harsh"
+            className="w-72 h-45 rounded-2xl shadow-2xl border-4 border-blue-400"
+          />
+
+        </div>
+
+      </div>
+
+      {/* TECH STACK SECTION */}
+
+      <div className="bg-slate-950 py-20">
+
+        <h2 className="text-4xl font-bold text-center mb-16">
+          Tech Stack
+        </h2>
+
+        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-10 px-6">
+
+          {[
+            { img: "./python.svg", name: "Python" },
+            { img: "./javascript.png", name: "JavaScript" },
+            { img: "./react.svg", name: "React" },
+            { img: "./nodejs.svg", name: "Node.js" },
+            { img: "./mongodb.svg", name: "MongoDB" },
+            { img: "./firebase.svg", name: "Firebase" },
+            { img: "./tailwind-css.svg", name: "Tailwind" },
+            { img: "./html.svg", name: "HTML" },
+            { img: "./Express-js.png", name: "Express" },
+            { img: "./c++ file.png", name: "C++" }
+          ].map((tech, index) => (
+
+            <div
+              key={index}
+              className=" text-black  bg-slate-100 rounded-xl p-6 flex flex-col  items-center hover:scale-110 hover:bg-slate-700 transition"
+            >
+              <img src={tech.img} className="w-14 h-14" alt={tech.name} />
+              <span className="mt-3 font-semibold">{tech.name}</span>
+            </div>
+
+          ))}
+
+        </div>
+
+      </div>
+
+    </div>
+  );
 }
 
 export default Home;

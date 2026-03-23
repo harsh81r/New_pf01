@@ -50,6 +50,7 @@ import { Link } from 'react-router-dom';
                                 </li>
                             </ul>
                         </div>
+<<<<<<< HEAD
                         <div>
                           
                             <ul className="text-gray-500 font-medium">
@@ -61,11 +62,18 @@ import { Link } from 'react-router-dom';
                                 </li>
                             </ul>
                         </div>
+=======
+                       
+>>>>>>> 0aab296 (Updated components, removed unused files, added assets)
                     </div>
                 </div>
                 <hr className="my-6 border-gray-200 sm:mx-auto lg:my-8" />
                 <div className="sm:flex sm:items-center sm:justify-between">
+<<<<<<< HEAD
         
+=======
+                  
+>>>>>>> 0aab296 (Updated components, removed unused files, added assets)
                     <div className="flex mt-4 space-x-5 sm:justify-center sm:mt-0">
                         <Link to="#" className="text-gray-500 hover:text-gray-900">
                             <svg

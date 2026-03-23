@@ -12,9 +12,9 @@ import About from './components/About/About.js'
 import Contact from './components/Contact/Contact.js'
 import User from './components/Users/Users.js'
 import Github, { githubInfoLoader } from './components/Github/Github.js'
-import Groundwater from './components/Groundwater.js'
+// import Groundwater from './components/Groundwater.js'
 
-import Button from './components/Button.js'
+// import Button from './components/Button.js'
 
 // const router = createBrowserRouter([
 //   {
@@ -49,7 +49,7 @@ const router = createBrowserRouter(
       path='github' 
       element={<Github />}
        />
-       <Route path='/Groundwater' element={<Groundwater/>}></Route>
+     
     </Route>
     
   )
