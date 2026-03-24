@@ -1,7 +1,7 @@
 // import React from 'react';
 
 function Github() {
-    // const data = useLoaderData()
+    
 
     return (
         <div className='bg-slate-950 text-center text-slate-100 text-3xl min-h-screen flex flex-col items-center justify-center'>
@@ -54,7 +54,3 @@ function Github() {
 
 export default Github;
 
-export const githubInfoLoader = async () => {
-    const response = await fetch('https://api.github.com/users/hiteshchoudhary');
-    return response.json();
-};
