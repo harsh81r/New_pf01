@@ -11,7 +11,7 @@ import Home from './components/Home/Home.js'
 import About from './components/About/About.js'
 import Contact from './components/Contact/Contact.js'
 import User from './components/Users/Users.js'
-import Github, { githubInfoLoader } from './components/Github/Github.js'
+import Github from './components/Github/Github.js'
 // import Groundwater from './components/Groundwater.js'
 
 // import Button from './components/Button.js'
@@ -45,7 +45,6 @@ const router = createBrowserRouter(
       <Route path='contact' element={<Contact />} />
       <Route path='user/:userid' element={<User />} />
       <Route 
-      loader={githubInfoLoader}
       path='github' 
       element={<Github />}
        />
