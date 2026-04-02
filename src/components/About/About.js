@@ -33,7 +33,7 @@ const projects = [
     desc: "Metal pickup app with booking and pricing system.",
     imgs: [
       "/assets/Gemini_Generated_Image_hs7vg5hs7vg5hs7v.png",
-      "/assets/hdl2.jpg",
+      "/assets/Gemini_Generated_Image_f62bh0f62bh0f62b.png",
       "/assets/hdlx3.jpg",
       "/assets/hdlx4.jpg"
     ],
