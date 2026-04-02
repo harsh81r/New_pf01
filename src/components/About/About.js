@@ -32,7 +32,7 @@ const projects = [
     title: "HDLx APP/APK",
     desc: "Metal pickup app with booking and pricing system.",
     imgs: [
-      "/assets/hdlx1.jpg",
+      "/assets/Gemini_Generated_Image_hs7vg5hs7vg5hs7v.png",
       "/assets/hdl2.jpg",
       "/assets/hdlx3.jpg",
       "/assets/hdlx4.jpg"
