@@ -35,7 +35,7 @@ const projects = [
       "/assets/Screenshot_2026-04-02-16-04-51-32_99c04817c0de5652397fc8b56c3b3817.jpg",
       "/assets/Screenshot_2026-04-02-16-26-44-68_1c337646f29875672b5a61192b9010f9.jpg",
       "/assets/Screenshot_2026-04-02-16-29-31-29_1c337646f29875672b5a61192b9010f9.jpg",
-      "/assets/hdlx4.jpg"
+      "/assets/Screenshot_2026-04-02-16-30-39-81_1c337646f29875672b5a61192b9010f9.jpg"
     ],
     url: "https://github.com/harsh81r/HDLX_Apk-file",
     github: "https://github.com/harsh81r/HDLX_Apk-file"
