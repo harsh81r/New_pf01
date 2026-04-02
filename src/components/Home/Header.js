@@ -15,15 +15,7 @@ function Header() {
     return (
         <header className="shadow sticky z-50 top-0">
             <nav className="bg-slate-950 border-gray-200 px-4 lg:px-6 py-2.5">
-                <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-                    <Link to="/" className="flex items-center">
-                        <img
-                            src="./myph.jpg"
-                            className="mr-3 h-12 rounded-3xl"
-                            alt="Logo"
-                        />
-                    </Link>
-                    <div className="flex items-center lg:order-2">
+              
                         <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden text-white">
                             {/* Mobile menu button */}
                             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
