@@ -177,7 +177,7 @@ function Home() {
       clearInterval(typing);
       clearTimeout(timeout);
     };
-  }, [roleIndex, roles]);
+  }, [roleIndex]);
 
   // text reveal
   useEffect(() => {
@@ -188,7 +188,7 @@ function Home() {
     }, 1500);
 
     return () => clearInterval(interval);
-  }, [textArray.length]);
+  }, []);
 
   // cursor glow
   useEffect(() => {
@@ -198,7 +198,7 @@ function Home() {
   }, []);
 
   return (
-    <div className={`${dark ? "bg-slate-900" : "bg-white text-black"} min-h-screen transition`}>
+    <div className={`${dark ? "bg-slate-900 text-white" : "bg-white text-black"} min-h-screen transition`}>
 
       {/* SPACE BACKGROUND */}
       <div className="fixed inset-0 -z-20 bg-black overflow-hidden">
@@ -223,10 +223,10 @@ function Home() {
         style={{ top: mouse.y - 150, left: mouse.x - 150 }}
       />
 
-      {/* DARK MODE */}
+      {/* DARK MODE BUTTON */}
       <button
         onClick={() => setDark(!dark)}
-        className="fixed top-6 right-6 px-4 py-2 rounded-xl bg-blue-500 text-white z-50"
+        className="fixed top-6 right-6 px-4 py-2 rounded-xl bg-blue-500 text-white z-50 hover:scale-105 transition"
       >
         {dark ? "Light" : "Dark"}
       </button>
@@ -236,7 +236,7 @@ function Home() {
 
         <div className="max-w-xl space-y-6">
 
-          <h1 className="text-5xl font-bold">
+          <h1 className="text-5xl font-bold leading-tight">
             Hi 👋 <br /> I'm <span className="text-blue-400">Harsh Khare</span>
           </h1>
 
@@ -246,7 +246,12 @@ function Home() {
 
           <div className="space-y-2 text-gray-400">
             {textArray.map((t, i) => (
-              <p key={i} className={`transition ${i <= visibleTextIndex ? "opacity-100" : "opacity-0"}`}>
+              <p
+                key={i}
+                className={`transition-opacity duration-500 ${
+                  i <= visibleTextIndex ? "opacity-100" : "opacity-0"
+                }`}
+              >
                 {t}
               </p>
             ))}
@@ -258,11 +263,17 @@ function Home() {
           >
             View Projects
           </Link>
+
         </div>
 
         <div className="animate-float">
-          <img src="./myph.png" alt="Harsh" className="w-72 rounded-2xl shadow-2xl border-4 border-blue-400" />
+          <img
+            src="./myph.png"
+            alt="Harsh"
+            className="w-72 rounded-2xl shadow-2xl border-4 border-blue-400"
+          />
         </div>
+
       </div>
 
       {/* SKILLS */}
@@ -272,7 +283,7 @@ function Home() {
         </h2>
 
         <p className="text-gray-400 max-w-2xl mx-auto mb-12">
-          I specialize in modern web and mobile development, focusing on building scalable and efficient applications.
+          I specialize in modern web and mobile development.
         </p>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
@@ -290,30 +301,16 @@ function Home() {
           Tools I Work With
         </h2>
 
-        <p className="text-gray-400 max-w-2xl mx-auto mb-12">
-          Tools and platforms I use to build, deploy, and manage applications.
-        </p>
-
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
-          {[
-            { name: "Firebase", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" },
-            { name: "Postman", img: "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" },
-            { name: "Vercel", img: "https://assets.vercel.com/image/upload/front/favicon/vercel/180x180.png" },
-            { name: "GitHub", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
-            { name: "Google Cloud", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" },
-            { name: "Cloudinary", img: "https://res.cloudinary.com/cloudinary-marketing/image/upload/v1664532791/logo/for_white_bg/cloudinary_cloud_glyph_blue.svg" },
-            { name: "Render", img: "https://seeklogo.com/images/R/render-logo-4E8E3F1F9A-seeklogo.com.png" },
-            { name: "Formik", img: "https://formik.org/img/formik-logo.svg" }
-          ].map((tool,i)=>(
-            <div key={i} className="group bg-slate-800/70 backdrop-blur-lg rounded-xl p-6 flex flex-col items-center shadow-xl hover:scale-110 transition border border-white/10">
-              <img src={tool.img} alt={tool.name} className="w-12 h-12 mb-3 group-hover:scale-125 transition" />
-              <span className="text-white font-semibold">{tool.name}</span>
+          {["Firebase","Postman","Vercel","GitHub","Google Cloud","Cloudinary","Render","Formik"].map((tool,i)=>(
+            <div key={i} className="bg-slate-800/70 backdrop-blur-lg rounded-xl p-6 text-white font-semibold hover:scale-110 transition border border-white/10">
+              {tool}
             </div>
           ))}
         </div>
       </div>
 
-      {/* animations */}
+      {/* ANIMATIONS */}
       <style>{`
         @keyframes float {
           0%,100%{transform:translateY(0)}
