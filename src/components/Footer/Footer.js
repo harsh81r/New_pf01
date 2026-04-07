@@ -45,12 +45,12 @@ function Footer() {
                                 </li>
                                 <li>
                                     <a
-                                        href="https://github.com/harsh81r"
+                                        href="www.linkedin.com/in/harsh-khare-tech81"
                                         className="hover:underline"
                                         target="_blank"
                                         rel="noreferrer"
                                     >
-                                        Discord
+                                        LinkedIn
                                     </a>
                                 </li>
                             </ul>
